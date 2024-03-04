@@ -24,8 +24,58 @@ export default {
 </script>
 
 <template>
-  <CardList></CardList>
+    <nav>
+        <img class="logo" src="/img/Yu-Gi-Oh!-logo.png" alt="logo Yu-Gi-Oh">
+        <h1>Yu-Gi-Oh Api</h1>
+    </nav>
+
+    <main>
+        <select name="type" id="type">
+            <option value="alien">Alien</option>
+        </select>
+
+        <CardList></CardList>
+    </main>
 </template>
 
-<style>
+<style lang="scss">
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+
+    background-color: white;
+
+    .logo {
+        width: 80px;
+        margin-right: 30px;
+    }
+
+    h1 {
+        font-size: 60px;
+        font-weight: 400;
+        color: black;
+    }
+    
+}
+
+main {
+    padding: 0 160px;
+
+    background-color: #D48F38;
+
+    #type {
+        width: 240px;
+        margin: 30px 10px;
+        padding: 10px;
+
+        border: 0;
+        border-radius: 8px;
+        
+        color: black;
+        background-color: white;
+    }
+}
+
 </style>
