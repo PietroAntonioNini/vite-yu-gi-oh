@@ -13,12 +13,10 @@ export default {
 
     created() {
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0').then(res => {
-            console.log(res.data.data);
             this.store.cards = res.data.data;
         });
 
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(res => {
-            console.log(res.data);
             this.store.archetypes = res.data;
         });
     },
@@ -30,7 +28,10 @@ export default {
 
     methods: {
         optionSelect() {
-            
+            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=' + this.store.selectedArchetype).then(res => {
+                this.store.cards = res.data.data
+            });
+
         },
     },
 }
