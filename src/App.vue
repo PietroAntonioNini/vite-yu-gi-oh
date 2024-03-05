@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { store } from './store';
 import CardList from './components/CardList.vue';
+import CardSearch from './components/CardSearch.vue';
 
 export default {
     data() {
@@ -12,14 +13,26 @@ export default {
 
     created() {
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0').then(res => {
-            console.log(res.data.data[0]);
+            console.log(res.data.data);
             this.store.cards = res.data.data;
-        })
+        });
+
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(res => {
+            console.log(res.data);
+            this.store.archetypes = res.data;
+        });
     },
 
     components: {
         CardList,
-    }
+        CardSearch,
+    },
+
+    methods: {
+        optionSelect() {
+            
+        },
+    },
 }
 </script>
 
@@ -30,10 +43,7 @@ export default {
     </nav>
 
     <main>
-        <select name="type" id="type">
-            <option value="alien">Alien</option>
-        </select>
-
+        <CardSearch @option="optionSelect()"></CardSearch>
         <CardList></CardList>
     </main>
 </template>
@@ -65,17 +75,7 @@ main {
 
     background-color: #D48F38;
 
-    #type {
-        width: 240px;
-        margin: 30px 10px;
-        padding: 10px;
-
-        border: 0;
-        border-radius: 8px;
-        
-        color: black;
-        background-color: white;
-    }
+    
 }
 
 </style>
