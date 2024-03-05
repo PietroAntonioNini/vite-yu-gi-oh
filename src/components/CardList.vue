@@ -20,8 +20,8 @@ export default {
 
         <ul id="cards-container">
             <li id="cards-box" v-for="card in store.cards">
-                <div v-for="image in card.card_images">
-                    <img class="card-image" :src="image.image_url" :alt="card.name">
+                <div>
+                    <img class="card-image" :src="card.card_images[0].image_url" :alt="card.name">
                 </div>
                 <h3>{{ card.name }}</h3>
                 <h4>{{ card.archetype }}</h4>
@@ -57,6 +57,7 @@ export default {
 
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             text-align: center;
             gap: 15px;
 
@@ -67,8 +68,6 @@ export default {
             }
 
             h3 {
-                padding: 0 20px;
-
                 font-size: 20px;
                 font-weight: bold;
                 text-transform: uppercase;

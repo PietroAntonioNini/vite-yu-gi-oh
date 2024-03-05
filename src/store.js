@@ -5,5 +5,5 @@ export const store = reactive({
 
     archetypes: [],
 
-    selectedArchetype: '',
+    selectedArchetype: '0',
 });
