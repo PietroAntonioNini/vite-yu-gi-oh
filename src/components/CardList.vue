@@ -15,7 +15,7 @@ export default {
 <template>
     <div class="container">
         <nav id="card-nav">
-            <h2 id="nav-text">Found 39 cards</h2>
+            <h2 id="nav-text">Found {{ store.cards.length }} cards</h2>
         </nav>
 
         <ul id="cards-container">
@@ -53,11 +53,12 @@ export default {
 
         #cards-box {
             width: calc(100% / 5 - 30px/5 * 4);
+            max-height: 500px;
 
             display: flex;
             flex-direction: column;
             text-align: center;
-            gap: 20px;
+            gap: 15px;
 
             background-color: #D48F38;
 
@@ -68,13 +69,13 @@ export default {
             h3 {
                 padding: 0 20px;
 
-                font-size: 24px;
+                font-size: 20px;
                 font-weight: bold;
                 text-transform: uppercase;
             }
 
             h4 {
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: 400;
                 color: black;
             }
