@@ -48,15 +48,19 @@ export default {
 </script>
 
 <template>
-    <nav>
-        <img class="logo" src="/img/Yu-Gi-Oh!-logo.png" alt="logo Yu-Gi-Oh">
-        <h1>Yu-Gi-Oh Api</h1>
-    </nav>
 
-    <main>
-        <CardSearch @option="optionSelect()"></CardSearch>
-        <CardList></CardList>
-    </main>
+    <div>
+        <nav>
+            <img class="logo" src="/img/Yu-Gi-Oh!-logo.png" alt="logo Yu-Gi-Oh">
+            <h1>Yu-Gi-Oh Api</h1>
+        </nav>
+
+        <main>
+            <CardSearch @option="optionSelect()"></CardSearch>
+            <CardList></CardList>
+        </main>
+    </div>
+    
 </template>
 
 <style lang="scss">

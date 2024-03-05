@@ -1,8 +1,13 @@
 <script>
 import { store } from '../store';
+import AppLoader from '../components/AppLoader.vue';
 
 export default {
     name: 'CardList',
+
+    components: {
+        AppLoader,
+    },
 
     data() {
         return {
@@ -13,7 +18,11 @@ export default {
 </script>
 
 <template>
+
+    
     <div class="container">
+        <AppLoader v-if="!store.cards.length > 0"></AppLoader>
+
         <nav id="card-nav">
             <h2 id="nav-text">Found {{ store.cards.length }} cards</h2>
         </nav>
@@ -35,6 +44,7 @@ export default {
 
 .container {
     padding: 70px;
+    position: relative;
     background-color: white;
 
     #card-nav {
